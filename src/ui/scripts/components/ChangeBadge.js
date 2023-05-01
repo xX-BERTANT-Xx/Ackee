@@ -12,10 +12,10 @@ const type = (value) => {
 }
 
 const title = (value, formattedValue) => {
-	if (value > 0) return `A ${ formattedValue } increase when comparing the last 7 days with the previous 7 days`
-	if (value < 0) return `A ${ formattedValue } decrease when comparing the last 7 days with the previous 7 days`
+	if (value > 0) return `${ formattedValue } 过去 7 天与前 7 天相比有所增加`
+	if (value < 0) return `${ formattedValue } 过去 7 天与前 7 天相比有所减少`
 
-	return `No change when comparing the last 7 days with the previous 7 days`
+	return `最近 7 天与前 7 天比没有变化`
 }
 
 const ChangeBadge = (props) => {

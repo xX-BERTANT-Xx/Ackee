@@ -23,7 +23,7 @@ const Textarea = (props) => {
 	if (props.copyOnFocus === true) return (
 		h('div', {
 			className: 'inputMessage',
-			title: 'Copied to clipboard',
+			title: '已复制到剪切板',
 		}, textarea)
 	)
 

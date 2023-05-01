@@ -59,33 +59,33 @@ const Dashboard = (props) => {
 
 	const hasDomains = domains.value.length > 0
 
-	const domainsLabel = (activeItem) => activeItem == null ? 'Domains' : activeItem.label
-	const insightsLabel = (activeItem) => activeItem == null ? 'Insights' : activeItem.label
+	const domainsLabel = (activeItem) => activeItem == null ? '网站' : activeItem.label
+	const insightsLabel = (activeItem) => activeItem == null ? '总结' : activeItem.label
 
 	const domainsItems = domains.value.map(
 		(domain, index) => createDropdownButton(domain.title, `/domains/${ domain.id }`, props.route, props.setRoute, whenBelow(index, 10)),
 	)
 
 	const insightsItems = [
-		createDropdownButton('Views', '/insights/views', props.route, props.setRoute, 'v'),
-		createDropdownButton('Pages', '/insights/pages', props.route, props.setRoute, 'p'),
-		createDropdownButton('Referrers', '/insights/referrers', props.route, props.setRoute, 'r'),
-		createDropdownButton('Durations', '/insights/durations', props.route, props.setRoute, 'd'),
+		createDropdownButton('浏览人数', '/insights/views', props.route, props.setRoute, 'v'),
+		createDropdownButton('页面', '/insights/pages', props.route, props.setRoute, 'p'),
+		createDropdownButton('引荐来源', '/insights/referrers', props.route, props.setRoute, 'r'),
+		createDropdownButton('持续时间', '/insights/durations', props.route, props.setRoute, 'd'),
 		createDropdownSeparator(),
-		createDropdownButton('Events', '/insights/events', props.route, props.setRoute, 'e'),
+		createDropdownButton('事件', '/insights/events', props.route, props.setRoute, 'e'),
 		createDropdownSeparator(),
-		createDropdownButton('Systems', '/insights/systems', props.route, props.setRoute),
-		createDropdownButton('Devices', '/insights/devices', props.route, props.setRoute),
-		createDropdownButton('Browsers', '/insights/browsers', props.route, props.setRoute),
-		createDropdownButton('Sizes', '/insights/sizes', props.route, props.setRoute),
-		createDropdownButton('Languages', '/insights/languages', props.route, props.setRoute),
+		createDropdownButton('系统', '/insights/systems', props.route, props.setRoute),
+		createDropdownButton('设备', '/insights/devices', props.route, props.setRoute),
+		createDropdownButton('浏览器', '/insights/browsers', props.route, props.setRoute),
+		createDropdownButton('大小', '/insights/sizes', props.route, props.setRoute),
+		createDropdownButton('语言', '/insights/languages', props.route, props.setRoute),
 	]
 
 	const items = [
-		createButton('Overview', '/', props.route, props.setRoute),
+		createButton('概述', '/', props.route, props.setRoute),
 		hasDomains === true ? createDropdown(domainsLabel, domainsItems) : undefined,
 		createDropdown(insightsLabel, insightsItems),
-		createButton('Settings', '/settings', props.route, props.setRoute),
+		createButton('设置', '/settings', props.route, props.setRoute),
 	].filter(Boolean)
 
 	return (

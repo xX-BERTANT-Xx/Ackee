@@ -129,22 +129,22 @@ const FilterItem = (props) => {
 
 const Filter = (props) => {
 	const sortingButtons = [
-		createButton('Top', 'Top entries first', props.setSortingFilter, props.filters.sorting, sortings.SORTINGS_TOP),
-		createButton('New', 'New entries only', props.setSortingFilter, props.filters.sorting, sortings.SORTINGS_NEW),
-		createButton('Recent', 'Entries sorted by time', props.setSortingFilter, props.filters.sorting, sortings.SORTINGS_RECENT),
+		createButton('访问人数', '热门条目优先', props.setSortingFilter, props.filters.sorting, sortings.SORTINGS_TOP),
+		createButton('新的', '只有新条目', props.setSortingFilter, props.filters.sorting, sortings.SORTINGS_NEW),
+		createButton('最近的', '按时间排序', props.setSortingFilter, props.filters.sorting, sortings.SORTINGS_RECENT),
 	]
 
 	const rangeButtons = [
-		createButton('24 hours', 'Show last 24 hours', props.setRangeFilter, props.filters.range, ranges.RANGES_LAST_24_HOURS),
-		createButton('7 days', 'Show last 7 days', props.setRangeFilter, props.filters.range, ranges.RANGES_LAST_7_DAYS),
-		createButton('30 days', 'Show last 30 days', props.setRangeFilter, props.filters.range, ranges.RANGES_LAST_30_DAYS),
-		createButton('6 months', 'Show last 6 months', props.setRangeFilter, props.filters.range, ranges.RANGES_LAST_6_MONTHS),
+		createButton('24 小时', '展示最近24小时的', props.setRangeFilter, props.filters.range, ranges.RANGES_LAST_24_HOURS),
+		createButton('7 天', '展示最近7天的', props.setRangeFilter, props.filters.range, ranges.RANGES_LAST_7_DAYS),
+		createButton('30 天', '展示最近30天的', props.setRangeFilter, props.filters.range, ranges.RANGES_LAST_30_DAYS),
+		createButton('6 月', '展示最近6月的', props.setRangeFilter, props.filters.range, ranges.RANGES_LAST_6_MONTHS),
 	]
 
 	const intervalsButtons = [
-		createButton('Daily', 'Grouped by day', props.setIntervalFilter, props.filters.interval, intervals.INTERVALS_DAILY),
-		createButton('Monthly', 'Grouped by month', props.setIntervalFilter, props.filters.interval, intervals.INTERVALS_MONTHLY),
-		createButton('Yearly', 'Grouped by year', props.setIntervalFilter, props.filters.interval, intervals.INTERVALS_YEARLY),
+		createButton('每天', '按天分组', props.setIntervalFilter, props.filters.interval, intervals.INTERVALS_DAILY),
+		createButton('每月', '按天分组', props.setIntervalFilter, props.filters.interval, intervals.INTERVALS_MONTHLY),
+		createButton('每年', '按天分组', props.setIntervalFilter, props.filters.interval, intervals.INTERVALS_YEARLY),
 	]
 
 	const sortingItem = createItem(labels.sortings[props.filters.sorting], sortingButtons)
@@ -154,8 +154,8 @@ const Filter = (props) => {
 	const routesMap = {
 		[routes.VIEWS]: [
 			createItem(labels.views[props.filters.viewsType], [
-				createButton('Unique', 'Unique site views', props.setViewsTypeFilter, props.filters.viewsType, views.VIEWS_TYPE_UNIQUE),
-				createButton('Total', 'Total page views', props.setViewsTypeFilter, props.filters.viewsType, views.VIEWS_TYPE_TOTAL),
+				createButton('突出', '突出的页面访问数', props.setViewsTypeFilter, props.filters.viewsType, views.VIEWS_TYPE_UNIQUE),
+				createButton('总和', '总共的页面访问数', props.setViewsTypeFilter, props.filters.viewsType, views.VIEWS_TYPE_TOTAL),
 			]),
 			intervalItem,
 		],
@@ -166,9 +166,9 @@ const Filter = (props) => {
 		[routes.REFERRERS]: [
 			sortingItem,
 			createItem(labels.referrers[props.filters.referrersType], [
-				createButton('Combined', 'Prefer source parameter', props.setReferrersTypeFilter, props.filters.referrersType, referrers.REFERRERS_TYPE_WITH_SOURCE),
-				createButton('↳ referrers only', undefined, props.setReferrersTypeFilter, props.filters.referrersType, referrers.REFERRERS_TYPE_NO_SOURCE),
-				createButton('↳ sources only', undefined, props.setReferrersTypeFilter, props.filters.referrersType, referrers.REFERRERS_TYPE_ONLY_SOURCE),
+				createButton('源参数', '首选源参数', props.setReferrersTypeFilter, props.filters.referrersType, referrers.REFERRERS_TYPE_WITH_SOURCE),
+				createButton('↳ 只有引荐来源', undefined, props.setReferrersTypeFilter, props.filters.referrersType, referrers.REFERRERS_TYPE_NO_SOURCE),
+				createButton('↳ 只有来源', undefined, props.setReferrersTypeFilter, props.filters.referrersType, referrers.REFERRERS_TYPE_ONLY_SOURCE),
 			]),
 			rangeItem,
 		],
@@ -184,8 +184,8 @@ const Filter = (props) => {
 				...sortingButtons,
 				createSeparator(),
 				onlyInactiveButton(
-					createButton('Show version', 'Include system version', props.setSystemsTypeFilter, props.filters.systemsType, systems.SYSTEMS_TYPE_WITH_VERSION),
-					createButton('Hide version', 'Don\'t include version', props.setSystemsTypeFilter, props.filters.systemsType, systems.SYSTEMS_TYPE_NO_VERSION),
+					createButton('显示版本', '包含系统版本', props.setSystemsTypeFilter, props.filters.systemsType, systems.SYSTEMS_TYPE_WITH_VERSION),
+					createButton('隐藏版本', '不包含系统版本', props.setSystemsTypeFilter, props.filters.systemsType, systems.SYSTEMS_TYPE_NO_VERSION),
 				),
 			]),
 			rangeItem,
@@ -195,8 +195,8 @@ const Filter = (props) => {
 				...sortingButtons,
 				createSeparator(),
 				onlyInactiveButton(
-					createButton('Show model', 'Include device model', props.setDevicesTypeFilter, props.filters.devicesType, devices.DEVICES_TYPE_WITH_MODEL),
-					createButton('Hide model', 'Don\'t include model', props.setDevicesTypeFilter, props.filters.devicesType, devices.DEVICES_TYPE_NO_MODEL),
+					createButton('显示设备型号', '包括设备型号', props.setDevicesTypeFilter, props.filters.devicesType, devices.DEVICES_TYPE_WITH_MODEL),
+					createButton('隐藏设备型号', '不包括设备型号', props.setDevicesTypeFilter, props.filters.devicesType, devices.DEVICES_TYPE_NO_MODEL),
 				),
 			]),
 			rangeItem,
@@ -206,8 +206,8 @@ const Filter = (props) => {
 				...sortingButtons,
 				createSeparator(),
 				onlyInactiveButton(
-					createButton('Show version', 'Include browser version', props.setBrowsersTypeFilter, props.filters.browsersType, browsers.BROWSERS_TYPE_WITH_VERSION),
-					createButton('Hide version', 'Don\'t include version', props.setBrowsersTypeFilter, props.filters.browsersType, browsers.BROWSERS_TYPE_NO_VERSION),
+					createButton('显示版本', '包含浏览器版本', props.setBrowsersTypeFilter, props.filters.browsersType, browsers.BROWSERS_TYPE_WITH_VERSION),
+					createButton('隐藏版本', '不包含浏览器版本', props.setBrowsersTypeFilter, props.filters.browsersType, browsers.BROWSERS_TYPE_NO_VERSION),
 				),
 			]),
 			rangeItem,
@@ -215,13 +215,13 @@ const Filter = (props) => {
 		[routes.SIZES]: [
 			sortingItem,
 			createItem(labels.sizes[props.filters.sizesType], [
-				createButton('Browser sizes', 'Width and height combined', props.setSizesTypeFilter, props.filters.sizesType, sizes.SIZES_TYPE_BROWSER_RESOLUTION),
-				createButton('↳ widths', undefined, props.setSizesTypeFilter, props.filters.sizesType, sizes.SIZES_TYPE_BROWSER_WIDTH),
-				createButton('↳ heights', undefined, props.setSizesTypeFilter, props.filters.sizesType, sizes.SIZES_TYPE_BROWSER_HEIGHT),
+				createButton('浏览器大小', '宽度和高度组合', props.setSizesTypeFilter, props.filters.sizesType, sizes.SIZES_TYPE_BROWSER_RESOLUTION),
+				createButton('↳ 宽度', undefined, props.setSizesTypeFilter, props.filters.sizesType, sizes.SIZES_TYPE_BROWSER_WIDTH),
+				createButton('↳ 高度', undefined, props.setSizesTypeFilter, props.filters.sizesType, sizes.SIZES_TYPE_BROWSER_HEIGHT),
 				createSeparator(),
-				createButton('Screen sizes', 'Width and height combined', props.setSizesTypeFilter, props.filters.sizesType, sizes.SIZES_TYPE_SCREEN_RESOLUTION),
-				createButton('↳ widths', undefined, props.setSizesTypeFilter, props.filters.sizesType, sizes.SIZES_TYPE_SCREEN_WIDTH),
-				createButton('↳ heights', undefined, props.setSizesTypeFilter, props.filters.sizesType, sizes.SIZES_TYPE_SCREEN_HEIGHT),
+				createButton('屏幕尺寸', '宽度和高度组合', props.setSizesTypeFilter, props.filters.sizesType, sizes.SIZES_TYPE_SCREEN_RESOLUTION),
+				createButton('↳ 宽度', undefined, props.setSizesTypeFilter, props.filters.sizesType, sizes.SIZES_TYPE_SCREEN_WIDTH),
+				createButton('↳ 高度', undefined, props.setSizesTypeFilter, props.filters.sizesType, sizes.SIZES_TYPE_SCREEN_HEIGHT),
 			]),
 			rangeItem,
 		],
